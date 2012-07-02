@@ -4,7 +4,7 @@ require 'gtk2'
 class StatusIcon
   def initialize
     @status = Gtk::StatusIcon.new
-    @status.pixbuf=Gdk::Pixbuf.new(File.dirname(__FILE__) + '/postgresql_54.png')
+    @status.pixbuf=Gdk::Pixbuf.new(File.dirname(__FILE__) + '/postgresql_icon.png')
     #@status.stock = Gtk::Stock::DIALOG_WARNING
     @status.tooltip = "PostgreSQL Controller" 
     @status.signal_connect('activate') { on_activate }
@@ -31,24 +31,11 @@ class StatusIcon
     dialog.version = "0.1"
     dialog.copyright = "(C) 2012 Alex Takitani"
     dialog.comments = "Starts and stops PostgreSQL service on Ubuntu"
-
-    # Set the license text, which is usually loaded from
-    # # a file. Also, set the web site address and label.
     dialog.license = "Free as a bird"
-    dialog.website = "http://www.gtkbook.com"
-    dialog.website_label = "www.gtkbook.com"
-    #
-    # # Set the application authors, documenters and translators.
-    # dialog.authors = authors
-    # dialog.documenters = documenters
-    # dialog.translator_credits = "Translator #1\nTranslator #2"
-    # # NOTE: all these properties are optional
-    # # dialog.artists = ["Artist #1", "Artist #2"]
-    #
-    #dialog.show_all
+    dialog.website = "https://github.com/alextakitani/postgresql_controller"
+    dialog.website_label = "source"
     dialog.run
     dialog.destroy
-    #Gtk::AboutDialog.new.show_all
   end
 
   def on_right_click(statusicon, button, time)
