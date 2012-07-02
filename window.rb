@@ -7,7 +7,7 @@ class StatusIcon
     @status.pixbuf=Gdk::Pixbuf.new(File.dirname(__FILE__) + '/postgresql_icon.png')
     #@status.stock = Gtk::Stock::DIALOG_WARNING
     @status.tooltip = "PostgreSQL Controller" 
-    @status.signal_connect('activate') { on_activate }
+    #@status.signal_connect('activate') { on_activate }
     @status.signal_connect('popup-menu') {|statusicon, button, time| on_right_click statusicon, button, time }
     @menu = Gtk::Menu.new
     @menu.append(about = Gtk::ImageMenuItem.new(Gtk::Stock::ABOUT))
@@ -32,8 +32,8 @@ class StatusIcon
     dialog.copyright = "(C) 2012 Alex Takitani"
     dialog.comments = "Starts and stops PostgreSQL service on Ubuntu"
     dialog.license = "Free as a bird"
-    dialog.website = "https://github.com/alextakitani/postgresql_controller"
-    dialog.website_label = "source"
+    dialog.website =  "http://alextakitani.github.com/postgresql_controller/"
+    dialog.website_label = "homepage"
     dialog.run
     dialog.destroy
   end
